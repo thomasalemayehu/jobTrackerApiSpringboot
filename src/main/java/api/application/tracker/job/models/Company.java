@@ -23,7 +23,7 @@ public class Company {
     @Embedded
     private Location location;
 
-    @OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
+    @OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE},orphanRemoval = true)
     private List<Remark> remarks;
 
     public Company() {

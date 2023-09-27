@@ -5,6 +5,7 @@ import api.application.tracker.job.models.types.RemarkType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 
 @Entity
@@ -17,6 +18,7 @@ public class Remark {
     private RemarkType descriptor;
 
     private String content;
+
 
     public Remark() {
     }
