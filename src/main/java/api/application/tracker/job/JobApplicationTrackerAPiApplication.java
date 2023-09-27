@@ -7,7 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JobApplicationTrackerAPiApplication {
 
     public static void main(String[] args) {
+        System.out.println("App Starting...");
+        System.out.println();
         SpringApplication.run(JobApplicationTrackerAPiApplication.class, args);
+
+
+        System.out.println();
+        System.out.println("Application Ending...");
+
     }
 
 }
