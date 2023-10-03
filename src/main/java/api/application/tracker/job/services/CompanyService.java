@@ -41,7 +41,6 @@ public class CompanyService {
     }
 
     public List<Company> getByName(String companyName, Pageable pageable){
-        System.out.println(companyRepository.findByNameEquals(companyName,pageable).getContent());
         return companyRepository.findByNameEquals(companyName,pageable).getContent();
     }
 
