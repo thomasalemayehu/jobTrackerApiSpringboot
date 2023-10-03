@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -119,5 +120,18 @@ public class Job {
                 ", remarkList=" + remarkList +
                 ", expectedSalary=" + expectedSalary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id && Double.compare(expectedSalary, job.expectedSalary) == 0 && Objects.equals(company, job.company) && Objects.equals(position, job.position) && Objects.equals(description, job.description) && type == job.type && Objects.equals(remarkList, job.remarkList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, company, position, description, type, remarkList, expectedSalary);
     }
 }

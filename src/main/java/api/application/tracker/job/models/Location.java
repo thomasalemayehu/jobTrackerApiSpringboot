@@ -3,6 +3,8 @@ package api.application.tracker.job.models;
 
 import jakarta.persistence.Embeddable;
 
+import java.util.Objects;
+
 @Embeddable
 public class Location {
 
@@ -53,5 +55,18 @@ public class Location {
                 ", city='" + city + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Objects.equals(state, location.state) && Objects.equals(city, location.city) && Objects.equals(zipCode, location.zipCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(state, city, zipCode);
     }
 }

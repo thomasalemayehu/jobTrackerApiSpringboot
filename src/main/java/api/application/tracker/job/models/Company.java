@@ -4,12 +4,11 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
 public class Company {
-
-
     @Id
     @GeneratedValue
     private int id;
@@ -102,5 +101,18 @@ public class Company {
                 ", location=" + location +
                 ", remark=" + remarks +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return id == company.id && Objects.equals(name, company.name) && Objects.equals(url, company.url) && Objects.equals(description, company.description) && Objects.equals(location, company.location) && Objects.equals(remarks, company.remarks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, url, description, location, remarks);
     }
 }

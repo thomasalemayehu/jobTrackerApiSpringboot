@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+import java.util.Objects;
+
 
 @Entity
 public class Remark {
@@ -55,5 +57,18 @@ public class Remark {
                 ", type=" + descriptor +
                 ", content='" + content + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Remark remark = (Remark) o;
+        return id == remark.id && descriptor == remark.descriptor && Objects.equals(content, remark.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, descriptor, content);
     }
 }
